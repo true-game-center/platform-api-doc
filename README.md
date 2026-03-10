@@ -1,16 +1,12 @@
-# platform-api-doc
-游戏中心后端服务，提供游戏信息、供应商、分类、订单及转账记录等能力。
-
-
 ## 平台接入说明
 
 ### 作为调用方请求 Game Center（/oapi/*）
 
 业务网关、运营后台等需要调用 Game Center 时，请求以 **`/oapi/*`** 开头的接口。
 
-- **鉴权**：请求头需携带 **`token`**。Token 由 Game Center 的 `game-proxy.accessKey`、`game-proxy.service` 等配置生成（JWT），`GameProxyFilter` 会校验，校验失败返回 4xx。
+- **鉴权**：请求头需携带 **`token`**。Token 由 Game Center 的 `accessKey`、`service` 等配置生成（JWT），`GameProxyFilter` 会校验，校验失败返回 4xx。
 - **接口路径**：与上文“可选接口”一致，例如游戏 URL、余额、上下分、订单查询等，均由 Game Center 内部转发到对应游戏 Proxy 或本地逻辑处理。
-- **错误处理**：部分接口在异常时返回 JSON-RPC 风格错误信息，可参考 `GlobalExceptionAdvice` 中对 `/game-proxy/*` 的封装。
+- **错误处理**：部分接口在异常时返回 JSON-RPC 风格错误信息。
 
 调用方需使用与上述配置兼容的 JWT 生成 `token`，并在请求头中传入。
 
@@ -19,7 +15,7 @@
 调用方接入 Game Center 的推荐步骤如下：
 
 1. **获取接入配置**：向 Game Center 维护方申请 `accessKey`、`service` 及接口 Base URL（如 `https://game-center.example.com`）。
-2. **生成 JWT Token**：使用 `accessKey` 作为密钥，按约定生成 JWT，Payload 中建议包含 `service`、`exp` 等字段，过期时间与 Game Center 配置的 `game-proxy.exp` 一致（如 30 分钟）。
+2. **生成 JWT Token**：使用 `accessKey` 作为密钥，按约定生成 JWT，Payload 中建议包含 `service`、`exp` 等字段，过期时间与 Game Center 配置的 `exp` 一致（如 30 分钟）。
 3. **调用接口**：请求时在 Header 中携带 `token: <JWT>`，Body 使用 JSON-RPC 2.0 格式（与 Game Proxy 约定一致）。
 4. **联调与验收**：先调用健康检查或简单接口（如余额查询）确认鉴权与网络正常，再按业务需要对接游戏 URL、上下分、订单等接口。
 
@@ -30,10 +26,9 @@
 配置示例（`application-dev.yml`）：
 
 ```yaml
-game-proxy:
-  accessKey: game-proxy-10086
+  accessKey: playpop-10086
   exp: 30
-  service: game-proxy
+  service: playpop
 ```
 
 #### 接入说明（客户端 + App 服务端）
@@ -293,16 +288,14 @@ Body:
 
 客户端通过该接口根据游戏 ID 等信息获取可用的游戏地址，用于在 WebView 中打开游戏。游戏中心会校验 token、余额与游戏状态，并按需完成上分。
 
-- **接口路径**：`POST /game-center/game/enter`
+- **接口路径**：`POST /oapi/game/enter`
 - **请求头**：以下均为必填
 
 | 参数 | 类型 | 说明 |
 |------|------|------|
 | token | String | 由 App 服务端签发的 JWT，游戏中心用其解析出 userId、kolUserId |
-| x-ip | String | 用户 IP |
 | device | String | 设备类型 |
 | language | String | 语言，如 en、zh |
-| x-country | String | 国家/地区 |
 
 - **请求体**：JSON（GameUrlReqDTO），`userId`、`kolUserId` 由服务端从 token 解析，无需客户端传。
 
@@ -311,7 +304,7 @@ Body:
 | 参数 | 类型 | 必填 | 说明 |
 |------|------|------|------|
 | currency | String | 是 | 币种，如 USD、VND、CNY |
-| gameId | Long | 否 | 游戏 ID，默认 0；与厂商/类别组合使用时可传 0 |
+| gameId | Long | 是 | 游戏 ID，默认 0；与厂商/类别组合使用时可传 0 |
 | gameSupplierId | Long | 否 | 游戏厂商 ID |
 | gameCategoryId | Long | 否 | 游戏类别 ID |
 | groupId | String | 否 | 房间/组 ID（如语音房场景） |
