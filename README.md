@@ -76,7 +76,31 @@
 
 ---
 
-### 1. 获取用户余额（userBalance）
+### 1. 校验用户token（tokenCheck）
+
+游戏中心在进入游戏前、游戏中查询余额时会调用该接口。
+
+- **接口路径**：`POST /oapi/token/check`
+- **请求头**：`token`（必填）
+- **请求体**：JSON，`TokenValidReq`
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| token | String | 是 | 用户C端登陆的token |
+
+- **响应**：`SingleResponse<UserBalanceResp>`
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| result.userId | Long | 用户 ID |
+| result.kolUserId | Long | KOL 用户 ID |
+| result.avatar | String | 头像（可选） |
+| result.nickname | String | 昵称（可选） |
+| result.gender | Integer | 性别（可选） |
+
+---
+
+### 2. 获取用户余额（userBalance）
 
 游戏中心在进入游戏前、游戏中查询余额时会调用该接口。
 
@@ -107,7 +131,7 @@
 
 ---
 
-### 2. 抵扣/增加积分（costScore）
+### 3. 抵扣/增加积分（costScore）
 
 游戏过程中扣款（下注）或加款（派彩）时，游戏中心调用该接口在平台侧完成实际积分变动。
 
@@ -143,7 +167,7 @@
 
 ---
 
-### 3. 获取用户优惠券列表（getUserVoucherList）
+### 4. 获取用户优惠券列表（getUserVoucherList）
 
 游戏中心需要展示或使用用户优惠券（代金券）时调用。
 
@@ -174,7 +198,7 @@
 
 ---
 
-## 接口说明
+## Game Center 提供的接口说明
 
 ### 获取游戏列表接口
 
