@@ -88,7 +88,7 @@
 |------|------|------|------|
 | token | String | 是 | 用户C端登陆的token |
 
-- **响应**：`SingleResponse<UserBalanceResp>`
+- **响应**：`SingleResponse<TokenCheckResp>`
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
@@ -97,6 +97,7 @@
 | result.avatar | String | 头像（可选） |
 | result.nickname | String | 昵称（可选） |
 | result.gender | Integer | 性别（可选） |
+| result.familyId | Long | 家族id） |
 
 ---
 
