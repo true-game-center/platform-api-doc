@@ -319,7 +319,7 @@ Body:
 |------|------|------|
 | token | String | 由 App 服务端签发的 JWT，游戏中心用其解析出 userId、kolUserId |
 
-- **请求体**：JSON（GameUrlReqDTO），`userId`、`kolUserId` 由服务端从 token 解析，无需客户端传。
+- **请求体**：JSON（GameUrlReqDTO）。
 
 #### 请求体说明（GameUrlReqDTO）
 
@@ -329,6 +329,7 @@ Body:
 | language | String | 是 |语言 |
 | ip | String | 是 |IP地址 |
 | country | String | 是 |国家 |
+| token | String | 是 |用户token |
 | currency | String | 是 | 币种，如 USD、VND、CNY |
 | gameId | Long | 是 | 游戏 ID，默认 0；与厂商/类别组合使用时可传 0 |
 | gameSupplierId | Long | 否 | 游戏厂商 ID |
