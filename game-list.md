@@ -69,18 +69,18 @@
 | 1465720586452861022 | SUD | 1465754605622133299 | 友尽闯关 | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1490944230389182466/square.webp" alt="icon" width="40" /> |
 | 1463480505344196703 | pw true game | 1466466812475474862 | market | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/WIN_IN_FUTURE2/square.webp" alt="icon" width="40" /> |
 | 1463480505344196703 | pw true game | 1463481409812299877 | WIN_IN_FUTURE | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/WIN_IN_FUTURE/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1441488525210943884 | football | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/36/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1441488117168079240 | 龙虎斗半屏 | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/33/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1441487659422712197 | lucky car | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/14/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1441487247256846721 | skywheel_fruit | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/89/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1437792006947471915 | Ludo | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/128/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1437791617170801192 | eliminatePK | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/107/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1437791256078975525 | beastparty | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/82/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1437790881846395426 | rocket | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/83/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1437789787208548892 | horseRace | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/88/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1437789283254534681 | jackpot | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/21/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1437435193278334144 | Bingo | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/29/square.webp" alt="icon" width="40" /> |
-| 1433885525541913815 | luck-game | 1437430466595521714 | UMO | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/73/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1441488525210943884 | football | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/36/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1441488117168079240 | 龙虎斗半屏 | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/33/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1441487659422712197 | lucky car | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/14/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1441487247256846721 | skywheel_fruit | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/89/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1437792006947471915 | Ludo | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/128/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1437791617170801192 | eliminatePK | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/107/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1437791256078975525 | beastparty | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/82/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1437790881846395426 | rocket | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/83/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1437789787208548892 | horseRace | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/88/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1437789283254534681 | jackpot | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/21/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1437435193278334144 | Bingo | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/29/square.webp" alt="icon" width="40" /> |
+| 1433885525541913815 | luck-game | 1437430466595521714 | UMO | <img src="https://static.vietbet86.com/public-assets/images/game-asset/lucky-game/73/square.webp" alt="icon" width="40" /> |
 | 1412421116172959842 | BG | 1424734578349703170 | BG-CHESS | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/chess/square.webp" alt="icon" width="40" /> |
 | 1412421116172959842 | BG | 1420790083199435221 | CasinoWar | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/CasinoWar/square.webp" alt="icon" width="40" /> |
 | 1412421116172959842 | BG | 1420789686867067346 | WinThreeCards | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/WinThreeCards/square.webp" alt="icon" width="40" /> |
