@@ -56,17 +56,17 @@
 | 1479516513235895140 | heibao-PG | 1465742993905418619 | Cocktail Nights | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/11023/square.webp" alt="icon" width="40" /> |
 | 1479516513235895140 | heibao-PG | 1465742707849691507 | Wild Bounty Showdown | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/11022/square.webp" alt="icon" width="40" /> |
 | 1479516513235895140 | heibao-PG | 1465742400755335530 | Dragon Hatch 2 | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/11021/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1466136700248916605 | EightBall | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1466136700248916605/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1466135818807542394 | Number Bomb | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1466135818807542394/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1466135397846221431 | Soul Booster | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1466135397846221431/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1466135015652852340 | Kungfu King | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1466135015652852340/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1465756975512945251 | Lucky77Pro | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1465756975512945251/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1465756441661932123 | Ludo | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1465756441661932123/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1465756116234273363 | Bingo | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1465756116234273363/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1465755837908648523 | BubbleShooter | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1465755837908648523/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1465755473591403075 | Domino | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1465755473591403075/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1465755096695439931 | teenpattipro | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1465755096695439931/square.webp" alt="icon" width="40" /> |
-| 1465720586452861022 | SUD | 1465754605622133299 | 友尽闯关 | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1465754605622133299/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1466136700248916605 | EightBall | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1739914495960793090/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1466135818807542394 | Number Bomb | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1468091457989509190/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1466135397846221431 | Soul Booster | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1890346721291059202/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1466135015652852340 | Kungfu King | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1572529974711259138/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1465756975512945251 | Lucky77Pro | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1900378861741793281/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1465756441661932123 | Ludo | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1468180338417074177/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1465756116234273363 | Bingo | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1964541611859566593/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1465755837908648523 | BubbleShooter | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1819318615915831298/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1465755473591403075 | Domino | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1537330258004504578/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1465755096695439931 | teenpattipro | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1557194487352053761/square.webp" alt="icon" width="40" /> |
+| 1465720586452861022 | SUD | 1465754605622133299 | 友尽闯关 | <img src="https://static.super86.cc/public-assets/images/game-asset/sud-game/1490944230389182466/square.webp" alt="icon" width="40" /> |
 | 1463480505344196703 | pw true game | 1466466812475474862 | market | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/WIN_IN_FUTURE2/square.webp" alt="icon" width="40" /> |
 | 1463480505344196703 | pw true game | 1463481409812299877 | WIN_IN_FUTURE | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/WIN_IN_FUTURE/square.webp" alt="icon" width="40" /> |
 | 1433885525541913815 | luck-game | 1441488525210943884 | football | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/36/square.webp" alt="icon" width="40" /> |
