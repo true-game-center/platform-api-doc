@@ -127,7 +127,7 @@ Body:
     "familyId":""//家族id
   }
 }
-
+```
 ---
 
 ### 2. 获取用户余额（userBalance）
@@ -191,6 +191,7 @@ Body:
     "familyId":""//家族id
   }
 }
+```
 ---
 
 ### 3. 抵扣/增加积分（costScore）
@@ -261,6 +262,7 @@ Body:
     "actualUsedScore":""//实际扣用的积分
   }
 }
+```
 ---
 
 ### 4. 获取用户优惠券列表（getUserVoucherList）
