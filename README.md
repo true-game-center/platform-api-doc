@@ -444,11 +444,10 @@ Body:
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| result | Object | 游戏链接结果 |
-| result.url | String | 游戏地址，客户端用 WebView 打开此 URL |
-| result.config | Object | 扩展配置（可选） |
-| result.openType | Integer | 打开方式：0 iframe 内嵌，1 浏览器/直接跳转 |
-| result.screen | Integer | 屏幕方向：0 横屏，1 竖屏 |
+| url | String | 游戏地址，客户端用 WebView 打开此 URL |
+| config | Object | 扩展配置（可选） |
+| openType | Integer | 打开方式：0 iframe 内嵌，1 浏览器/直接跳转 |
+| screen | Integer | 屏幕方向：0 横屏，1 竖屏 |
 
 #### 请求示例
 
