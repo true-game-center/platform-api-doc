@@ -16,7 +16,7 @@
 
 1. **获取接入配置**：向 Game Center 维护方申请 `accessKey`、`service` 及接口 Base URL（如 `https://game-center.example.com`）。
 2. **生成 JWT Token**：使用 `accessKey` 作为密钥，按约定生成 JWT，Payload 中建议包含 `service`、`exp` 等字段，过期时间与 Game Center 配置的 `exp` 一致（如 30 分钟）。
-3. **调用接口**：请求时在 Header 中携带 `token: <JWT>`，Body 使用 JSON-RPC 2.0 格式（与 Game Proxy 约定一致）。
+3. **调用接口**：请求时在 Header 中携带 `token: <JWT>`，使用restful风格。
 4. **联调与验收**：先调用健康检查或简单接口（如余额查询）确认鉴权与网络正常，再按业务需要对接游戏 URL、上下分、订单等接口。
 
 接入流程示意如下：
@@ -92,12 +92,41 @@
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| result.userId | Long | 用户 ID |
-| result.kolUserId | Long | KOL 用户 ID |
-| result.avatar | String | 头像（可选） |
-| result.nickname | String | 昵称（可选） |
-| result.gender | Integer | 性别（可选） |
-| result.familyId | Long | 家族id） |
+| userId | Long | 用户 ID |
+| kolUserId | Long | KOL 用户 ID |
+| avatar | String | 头像（可选） |
+| nickname | String | 昵称（可选） |
+| gender | Integer | 性别（可选） |
+| familyId | Long | 家族id（可选） |
+
+#### 请求示例
+
+```json
+POST POST /oapi/token/check
+Headers:
+  token: "[token]"
+
+Body:
+{
+  "token": ""//用户C端的登陆token
+}
+```
+
+#### 响应示例
+
+```json
+{
+  "errCode":"0",//0 表示成功
+  "errMessage":"",//错误消息
+  "data": {
+    "userId":"",//用户id
+    "kolUserId":"",//商户号
+    "avatar":"",//头像
+    "nickname":"",//昵称
+    "gender":"",//性别 0 未知 1 男 2 女
+    "familyId":""//家族id
+  }
+}
 
 ---
 
@@ -119,17 +148,49 @@
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| result.score | String | 用户在该币种下的余额 |
-| result.currency | String | 币种 |
-| result.userId | Long | 用户 ID |
-| result.kolUserId | Long | KOL 用户 ID |
-| result.avatar | String | 头像（可选） |
-| result.nickname | String | 昵称（可选） |
-| result.gender | Integer | 性别（可选） |
-| result.familyId | Long | 家族 ID（可选） |
+| score | String | 用户在该币种下的余额 |
+| currency | String | 币种 |
+| userId | Long | 用户 ID |
+| kolUserId | Long | KOL 用户 ID |
+| avatar | String | 头像（可选） |
+| nickname | String | 昵称（可选） |
+| gender | Integer | 性别（可选） |
+| familyId | Long | 家族 ID（可选） |
 
 **使用场景**：进入游戏前校验准入、展示余额；非免转游戏上分前查余额；退出游戏时带出余额前查询等。
 
+#### 请求示例
+
+```json
+POST POST /oapi/score/balance
+Headers:
+  token: "[token]"
+
+Body:
+{
+  "kolUserId": ""//商户号
+  "userId":"",//用户id
+  "cardTypeCode":""//币种
+}
+```
+
+#### 响应示例
+
+```json
+{
+  "errCode":"0",//0 表示成功
+  "errMessage":"",//错误消息
+  "data": {
+    "score":"",//余额
+    "kolUserId":"",//商户号
+    "currency":"",//币种
+    "userId":"",//用户id
+    "avatar":"",//头像
+    "nickname":"",//昵称
+    "gender":"",//性别 0 未知 1 男 2 女
+    "familyId":""//家族id
+  }
+}
 ---
 
 ### 3. 抵扣/增加积分（costScore）
@@ -155,17 +216,51 @@
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| result.userId | Long | 用户 ID |
-| result.score | String | 扣款/加款后的余额 |
-| result.currency | String | 币种 |
-| result.usedVoucherScore | BigDecimal | 实际使用代金券金额（若有） |
-| result.voucherId | Long | 使用的代金券 ID |
-| result.actualUsedScore | BigDecimal | 实际扣用的积分 |
-| result.payBetTimes | BigDecimal | 代金券打码倍数 |
-| result.voucherTransactionId | Long | 本次代金券使用流水 ID |
+| userId | Long | 用户 ID |
+| score | String | 扣款/加款后的余额 |
+| currency | String | 币种 |
+| usedVoucherScore | BigDecimal | 实际使用代金券金额（若有） |
+| voucherId | Long | 使用的代金券 ID |
+| actualUsedScore | BigDecimal | 实际扣用的积分 |
+| payBetTimes | BigDecimal | 代金券打码倍数 |
+| voucherTransactionId | Long | 本次代金券使用流水 ID |
 
 **使用场景**：用户上分到游戏（加款）、下注扣款、派彩加款、下分回平台（扣款）等，均由游戏中心在适当时机调用本接口。
 
+#### 请求示例
+
+```json
+POST POST /oapi/score/cost
+Headers:
+  token: "[token]"
+
+Body:
+{
+  "score":"",//变动积分：正数为加款，负数为扣款 
+  "bizId":"",//业务流水号（游戏中心生成，用于幂等/对账）
+  "gameId":"",//游戏 ID（游戏中心侧） 
+  "gameSupplierId":"",//游戏厂商 ID 
+  "userId":"",//用户 ID 
+  "kolUserId":"",//KOL 用户 ID 
+  "currency":"", //币种 
+  "voucherId":""//代金券 ID（使用代金券时传入） 
+}
+```
+
+#### 响应示例
+
+```json
+{
+  "errCode":"0",//0 表示成功
+  "errMessage":"",//错误消息
+  "data": {
+    "score":"",//余额
+    "kolUserId":"",//商户号
+    "currency":"",//币种
+    "userId":"",//用户id
+    "actualUsedScore":""//实际扣用的积分
+  }
+}
 ---
 
 ### 4. 获取用户优惠券列表（getUserVoucherList）
@@ -375,15 +470,36 @@ Body:
 }
 ```
 
+curl 'https://game-center-playpop.pwtk.cc/oapi/game/enter' \
+  -H 'language: en-US' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'pwa: 0' \
+  -H 'sec-ch-ua: "Not(A:Brand";v="8", "Chromium";v="144", "Google Chrome";v="144"' \
+  -H 'id_a: k61Q4csONN109464HPJQ' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'client: C_WEB' \
+  -H 'device: pc' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json' \
+  -H 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdGYiLCJrb2xVc2VySWQiOiIxMTAxMjE4NCIsImdlbmRlciI6Im51bGwiLCJpcCI6IjJhMDk6YmFjMTozYjAwOjExODo6MTY6MWRmIiwiYXZhdGFyIjoicGIvMjAyNi0wMy0xM1QwNy00MC0xMy0zNjBaL3VzZXIvYXZhdGFyXzEwLnBuZyIsImZhbWlseUlkIjoibnVsbCIsImxvZ2luVGltZSI6IjE3NzM3MjkxODQ0NzIiLCJ1c2VyX2NvbnN1bWVfbGV2ZWwiOiIwIiwiYXBwSWQiOiIxMjEiLCJkb21haW4iOiJzdXBlcjg2LmNjIiwibmlja25hbWUiOiJnQmlkODc1OSIsInNpdGVJZCI6IjEwNjA0MTA0MTEwMDkiLCJpZCI6IjExMDIyMDE5IiwidXNlclR5cGUiOiI2IiwidmlwIjoibnVsbCIsInVzZXJuYW1lIjoiMTEwMjIwMTkiLCJjaWQiOiIxLjE3Njk2NTI2NjIyNTYuY2Y4OTNlNjguc0JTa3lRSDhwVExfVWhheHNkcG8zR0FidWFyUVcyazF1bDVTdVVoVnNvMWhReWFOblJ2U0RPV3lEQmowNFl5c1dmWkRBdTEta1NQeHFVbDBsanhYWGciLCJmYW1pbHlDcmVhdG9yIjoibnVsbCIsImV4cCI6MTc3OTc3NzE4NH0.0WtzUNtFxmvxWuBUmN4DEZBcenv9E5QZw6cYdSvQ-hE' \
+  -H 'domain: super86.cc' \
+  -H 'Referer: https://super86.cc/' \
+  -H 'cid: 1.1769652662256.cf893e68.sBSkyQH8pTL_Uhaxsdpo3GAbuarQW2k1ul5SuUhVso1hQyaNnRvSDOWyDBj04YysWfZDAu1-kSPxqUl0ljxXXg' \
+  -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36' \
+  -H 'rl: 0' \
+  --data-raw '{"gameSupplierId":"1479519142045287281","gameCategoryId":"1425122707615252577","gameId":"1465735229007200458","currency":"USD","returnUrl":"https%3A%2F%2Fsuper86.cc%2Fclose"}'
+
 #### 响应示例
 
 ```json
 {
-  "result": {
-    "url": "https://game-provider.example.com/launch?token=xxx&...",
-    "config": null,
+  "errCode":"0",
+  "errMessage":"",
+  "data": {
+    "url": "https://game-provider.example.com/launch?token=xxx&...",//游戏链接
+    "config": null,//游戏配置
     "openType": 0,
-    "screen": 1
+    "screen": 1//0 横屏 1 竖屏
   }
 }
 ```
@@ -433,11 +549,11 @@ Body:
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| result.total | Long | 总条数 |
-| result.totalBetScore | BigDecimal | 总下注金额 |
-| result.totalSettleScore | BigDecimal | 总结算金额 |
-| result.totalValidScore | BigDecimal | 总有效金额 |
-| result.list | Array | 订单列表，每项为 UserOrderDTO |
+| total | Long | 总条数 |
+| totalBetScore | BigDecimal | 总下注金额 |
+| totalSettleScore | BigDecimal | 总结算金额 |
+| totalValidScore | BigDecimal | 总有效金额 |
+| list | Array | 订单列表，每项为 UserOrderDTO |
 
 **UserOrderDTO 主要字段**：kolUserId、userId、gameId、gameName、gameSupplierId、gameSupplierCode、gameSupplierName、gameCategoryId、gameCategoryName、orderId、currency、state、betTime、betScore、settleScore、netScore、validScore、settleTime、groupId、isSettle、gameInfo、isOrderDetail。
 
@@ -460,6 +576,34 @@ Body:
 }
 ```
 
+#### 响应示例
+
+```json
+{
+  "errCode":"0",
+  "errMessage":"",
+  "data": {
+    "total": 2,
+    "totalBetScore": 1000.00,//总下注
+    "totalSettleScore": 1050.00,//总结算
+    "totalValidScore": 980.00,//总打码
+    "list": [
+      {
+        "gameId": 100,//游戏id'
+        "groupId": "room_001",//房间id
+        "gameSupplierId": 5,//游戏厂商id
+        "gameCategoryId": 10,//游戏类别id
+        "currency": "USD",//币种
+        "betScore": 500.00,//下注金额
+        "settleScore": 520.00,//结算金额
+        "validScore": 490.00,//打码量
+        "userId": 20001//用户id
+      }
+    ]
+  }
+}
+```
+
 ---
 
 ### 订单统计接口（stat）
@@ -475,7 +619,7 @@ Body:
 |------|------|------|------|
 | page | Integer | 是 | 页码，从 1 开始 |
 | size | Integer | 是 | 每页条数 |
-| kolUserId | Long | 否 | KOL 用户 ID |
+| kolUserId | Long | 是 | KOL 用户 ID |
 | userIds | List\<Long\> | 否 | 用户 ID 列表 |
 | currency | String | 否 | 币种 |
 | groupId | String | 否 | 房间/组 ID |
@@ -490,11 +634,11 @@ Body:
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| result.total | Long | 总条数 |
-| result.totalBetScore | BigDecimal | 总下注金额 |
-| result.totalSettleScore | BigDecimal | 总结算金额 |
-| result.totalValidScore | BigDecimal | 总有效金额 |
-| result.list | Array | 统计明细列表，每项为 OrderStatDTO |
+| total | Long | 总条数 |
+| totalBetScore | BigDecimal | 总下注金额 |
+| totalSettleScore | BigDecimal | 总结算金额 |
+| totalValidScore | BigDecimal | 总有效金额 |
+| list | Array | 统计明细列表，每项为 OrderStatDTO |
 
 **OrderStatDTO 主要字段**：gameId、groupId、gameSupplierId、gameCategoryId、currency、betScore、settleScore、validScore、userId。
 
@@ -520,22 +664,24 @@ Body:
 
 ```json
 {
-  "result": {
+  "errCode":"0",
+  "errMessage":"",
+  "data": {
     "total": 2,
-    "totalBetScore": 1000.00,
-    "totalSettleScore": 1050.00,
-    "totalValidScore": 980.00,
+    "totalBetScore": 1000.00,//总下注
+    "totalSettleScore": 1050.00,//总结算
+    "totalValidScore": 980.00,//总打码
     "list": [
       {
-        "gameId": 100,
-        "groupId": "room_001",
-        "gameSupplierId": 5,
-        "gameCategoryId": 10,
-        "currency": "USD",
-        "betScore": 500.00,
-        "settleScore": 520.00,
-        "validScore": 490.00,
-        "userId": 20001
+        "gameId": 100,//游戏id'
+        "groupId": "room_001",//房间id
+        "gameSupplierId": 5,//游戏厂商id
+        "gameCategoryId": 10,//游戏类别id
+        "currency": "USD",//币种
+        "betScore": 500.00,//下注金额
+        "settleScore": 520.00,//结算金额
+        "validScore": 490.00,//打码量
+        "userId": 20001//用户id
       }
     ]
   }
