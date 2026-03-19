@@ -303,7 +303,7 @@ Body:
 分页查询游戏信息，支持多条件筛选；可与 A0 配置联动，排除指定 KOL 下已配置的游戏。
 
 - **接口路径**：`POST /oapi/game-info/page`
-- **请求头**：`language`（必填，语言，如 `en`、`zh`）
+- **请求头**：`language`（必填，语言，如 en-US）
 - **请求体**：JSON，继承分页参数并包含以下可选查询条件。
 
 #### 请求体说明（GameInfoQueryDTO）
@@ -367,7 +367,7 @@ Body:
 ```json
 POST /oapi/game-info/page
 Headers:
-  language: zh
+  language: en-US
 
 Body:
 {
@@ -424,7 +424,7 @@ Body:
 | 参数 | 类型 | 必填 | 说明 |
 |------|------|------|------|
 | device | String | 是 | 设备类型 |
-| language | String | 是 |语言 |
+| language | String | 是 |语言 vi-VN,en-US|
 | ip | String | 是 |IP地址 |
 | country | String | 是 |国家 |
 | token | String | 是 |用户token |
@@ -457,7 +457,7 @@ Headers:
   token: <JWT>
   x-ip: 192.168.1.1
   device: ios
-  language: zh
+  language: en-US
   x-country: CN
 
 Body:
@@ -563,7 +563,7 @@ curl 'https://game-center-playpop.pwtk.cc/oapi/game/enter' \
 ```json
 POST /oapi/game-order/queryV2
 Headers:
-  language: zh
+  language: en-US
 
 Body:
 {
