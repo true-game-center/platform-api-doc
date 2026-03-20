@@ -211,6 +211,7 @@ Body:
 | userId | Long | 是 | 用户 ID |
 | kolUserId | Long | 是 | KOL 用户 ID |
 | currency | String | 否 | 币种 |
+| groupId | String | 否 | 房间id |
 | voucherId | Long | 否 | 代金券 ID（使用代金券时传入） |
 
 - **响应**：`SingleResponse<UserCostScoreResp>`
@@ -243,7 +244,8 @@ Body:
   "gameSupplierId":"",//游戏厂商 ID 
   "userId":"",//用户 ID 
   "kolUserId":"",//KOL 用户 ID 
-  "currency":"", //币种 
+  "currency":"", //币种
+  "groupId":"",//房间id
   "voucherId":""//代金券 ID（使用代金券时传入） 
 }
 ```
