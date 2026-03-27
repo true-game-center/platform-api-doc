@@ -1,7 +1,6 @@
 # 游戏列表
 | 游戏厂商ID | 游戏厂商名称 | 游戏ID | 游戏名称 | 游戏图标 |
 |---|---|---|---|---|
-| 1486042272511296851 | joyplay | 1486043520954271062 | TestGame | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/1/square.webp" alt="icon" width="40" /> |
 | 1479519142045287281 | HEIBAO | 1486043520954271504 | Rabbit Road | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/51011/square.webp" alt="icon" width="40" /> |
 | 1479519142045287281 | HEIBAO | 1486043520954271503 | Rock Paper Scissors | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/51010/square.webp" alt="icon" width="40" /> |
 | 1479519142045287281 | HEIBAO | 1486043520954271502 | Inout Twist | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/51009/square.webp" alt="icon" width="40" /> |
