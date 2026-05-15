@@ -431,13 +431,22 @@ Body:
 | country | String | 是 |国家 |
 | token | String | 是 |用户token |
 | currency | String | 是 | 币种，如 USD、VND、CNY |
-| gameId | Long | 是 | 游戏 ID，默认 0；与厂商/类别组合使用时可传 0 |
-| gameSupplierId | Long | 否 | 游戏厂商 ID |
-| gameCategoryId | Long | 否 | 游戏类别 ID |
 | groupId | String | 否 | 房间/组 ID（如语音房场景） |
 | isGroupTrace | Integer | 否 | 是否从语音房进入：0 否，1 是，默认 0 |
 | isDemo | Integer | 否 | 是否试玩：0 否，1 是，默认 0 |
 | returnUrl | String | 否 | 退出或返回时的跳转地址 |
+| limitConfigId | String | 否 | 限红配置 ID |
+| gameInfo | Object | 否 | 游戏信息；用于传入游戏类别、厂商和具体游戏 ID |
+| gameInfo.category | String | 是 | 游戏类别 ID |
+| gameInfo.providerId | String | 是 | 游戏厂商 ID；1494326540744264616 表示 h5games |
+| gameInfo.gameId | String | 否 | 游戏 ID；可选游戏示例：1503790445774242709 carnival，1503780287216092019 foddie，1503779730992661356 royal，1499486369695664870 tanmin，1499484616333986513 farm，1494327065715936934 转盘 |
+
+
+
+
+6:39 PM
+
+
 
 #### 响应说明
 
