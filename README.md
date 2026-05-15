@@ -469,7 +469,13 @@ Body:
   "groupId": "room_001",
   "isGroupTrace": 0,
   "isDemo": 0,
-  "returnUrl": "https://app.example.com/back"
+  "returnUrl": "https://app.example.com/back",
+  "limitConfigId": co2, // 现红配置，no required
+  "gameInfo": {
+        "category": "0",  // Game category ID, required
+        "providerId": "1494326540744264616",  // 1494326540744264616 is h5games，Game provider ID, required
+        "gameId": "101891"  // Game ID, optional; 6 games: 1503790445774242709 carnival, 1503780287216092019 foddie, 1503779730992661356 royal, 1499486369695664870 tanmin, 1499484616333986513 farm, 1494327065715936934 转盘
+    },
 }
 ```
 
