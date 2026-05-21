@@ -480,6 +480,7 @@ Body:
   "isGroupTrace": 0,
   "isDemo": 0,
   "returnUrl": "https://app.example.com/back",
+  "ext": {}, // 透传给游戏的参数，no required
   "limitConfigId": co2, // 现红配置，no required
   "gameInfo": {
         "category": "0",  // Game category ID, required
