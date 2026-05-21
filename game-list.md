@@ -1,13 +1,13 @@
 # 游戏列表
 | 游戏厂商ID | 游戏厂商名称 | 游戏ID | 游戏名称 | 游戏图标 | 自研游戏 |
 |---|---|---|---|---|---|
-| 1494326540744264616 | h5games | 1506953563572535590 | star | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games/star/square.webp" alt="icon" width="40" /> | ✅ |
-| 1494326540744264616 | h5games | 1503790445774242709 | carnival | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/carnival/square.webp" alt="icon" width="40" /> | ✅ |
-| 1494326540744264616 | h5games | 1503780287216092019 | foddie | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/foddie/square.webp" alt="icon" width="40" /> | ✅ |
-| 1494326540744264616 | h5games | 1503779730992661356 | royal | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/royal/square.webp" alt="icon" width="40" /> | ✅ |
-| 1494326540744264616 | h5games | 1499486369695664870 | tanmin | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/tanmin/square.webp" alt="icon" width="40" /> | ✅ |
-| 1494326540744264616 | h5games | 1499484616333986513 | farm | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/farm/square.webp" alt="icon" width="40" /> | ✅ |
-| 1494326540744264616 | h5games | 1494327065715936934 | 转盘 | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/roulette/square.webp" alt="icon" width="40" /> | ✅ |
+| 1494326540744264616 | h5games | 1506953563572535590 | star | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/star/square.webp" alt="icon" width="40" /> | ✅ |
+| 1494326540744264616 | h5games | 1503790445774242709 | carnival | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/carnival/square.webp" alt="icon" width="40" /> | ✅ |
+| 1494326540744264616 | h5games | 1503780287216092019 | foddie | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/foddie/square.webp" alt="icon" width="40" /> | ✅ |
+| 1494326540744264616 | h5games | 1503779730992661356 | royal | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/royal/square.webp" alt="icon" width="40" /> | ✅ |
+| 1494326540744264616 | h5games | 1499486369695664870 | tanmin | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/tanmin/square.webp" alt="icon" width="40" /> | ✅ |
+| 1494326540744264616 | h5games | 1499484616333986513 | farm | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/farm/square.webp" alt="icon" width="40" /> | ✅ |
+| 1494326540744264616 | h5games | 1494327065715936934 | 转盘 | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/roulette/square.webp" alt="icon" width="40" /> | ✅ |
 | 1479519142045287281 | HEIBAO | 1486043520954271504 | Rabbit Road | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/51011/square.webp" alt="icon" width="40" /> |  |
 | 1479519142045287281 | HEIBAO | 1486043520954271503 | Rock Paper Scissors | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/51010/square.webp" alt="icon" width="40" /> |  |
 | 1479519142045287281 | HEIBAO | 1486043520954271502 | Inout Twist | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/51009/square.webp" alt="icon" width="40" /> |  |
