@@ -1,6 +1,7 @@
 # 游戏列表
 | 游戏厂商ID | 游戏厂商名称 | 游戏ID | 游戏名称 | 游戏图标 | 自研游戏 |
 |---|---|---|---|---|---|
+| 1494326540744264616 | h5games | 1506953563572535590 | star | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/star/square.webp" alt="icon" width="40" /> | ✅ |
 | 1494326540744264616 | h5games | 1503790445774242709 | carnival | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/carnival/square.webp" alt="icon" width="40" /> | ✅ |
 | 1494326540744264616 | h5games | 1503780287216092019 | foddie | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/foddie/square.webp" alt="icon" width="40" /> | ✅ |
 | 1494326540744264616 | h5games | 1503779730992661356 | royal | <img src="https://static.vietbet86.com/public-assets/images/game-asset/platform-game/royal/square.webp" alt="icon" width="40" /> | ✅ |
