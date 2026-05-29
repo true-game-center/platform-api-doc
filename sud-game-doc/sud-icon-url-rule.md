@@ -17,7 +17,7 @@ https://static.super86.cc/public-assets/images/game-asset/sud-game/{game_code}/s
 
 | 项目 | SUD 游戏 | 其他厂商（heibao 等） |
 |------|----------|----------------------|
-| 域名 | `static.super86.cc` | `static.vietbet86.com` |
+| 域名 | `static.super86.cc` | `static.super86.cc` |
 | 路径 | `sud-game` | `platform-game` |
 | 资源 ID | `game_code`（数据库 game_info 表） | 平台分配的资源 ID |
 
@@ -52,8 +52,8 @@ ORDER BY gi.id;
 ## 错误示例
 
 ```
-# 错误1：使用了错误的域名和路径
-https://static.vietbet86.com/public-assets/images/game-asset/platform-game/1819318615915831298/square.webp
+# 错误1：使用了错误的路径
+https://static.super86.cc/public-assets/images/game-asset/platform-game/1819318615915831298/square.webp
 
 # 错误2：使用了 gameId 而非 game_code
 https://static.super86.cc/public-assets/images/game-asset/sud-game/1465755837908648523/square.webp
@@ -65,7 +65,7 @@ https://static.super86.cc/public-assets/images/game-asset/sud-game/1465755837908
 2. 在 `game-list.md` 中，将 SUD 行的图标列按以下规则替换：
 
 ```
-域名:       static.vietbet86.com  →  static.super86.cc
+域名:       static.super86.cc
 路径段:     platform-game         →  sud-game
 资源ID:     替换为该游戏的 game_code（从 game_info 表获取）
 ```
