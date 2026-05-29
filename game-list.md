@@ -1,4 +1,13 @@
 # 游戏列表
+
+<details>
+<summary>当前状态</summary>
+
+- 未解决
+- 解决
+
+</details>
+
 | 游戏厂商ID | 游戏厂商名称 | 游戏ID | 游戏名称 | 图标码 | 游戏图标 | 自研游戏 |
 |---|---|---|---|---|---|---|
 | 1494326540744264616 | h5games | 1506953563572535590 | star | star | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/star/square.webp" alt="icon" width="40" /> | ✅ |
