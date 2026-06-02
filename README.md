@@ -437,6 +437,7 @@ Body:
 | returnUrl | String | 否 | 退出或返回时的跳转地址 |
 | limitConfigId | String | 否 | 限红配置 ID，co2, // 现红配置，no required |
 | ext | Object | 否 | 透传参数  // 透传给游戏方，no required |
+| ulc | decimal | 否 | 透传参数  // 透传给游戏方，no required |
 | gameInfo | Object | 否 | 游戏信息；用于传入游戏类别、厂商和具体游戏 ID |
 | gameInfo.category | String | 是 | 游戏类别 ID |
 | gameInfo.providerId | String | 是 | 游戏厂商 ID；1494326540744264616 表示 h5games |
