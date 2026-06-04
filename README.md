@@ -438,7 +438,7 @@ Body:
 | limitConfigId | String | 否 | 限红配置 ID，co2, // 现红配置，no required |
 | dataset | String | 否 | 透传给游戏服务方的数据集，no required |
 | enableJackpot | Integer | 否 | 是否启用 JackPot：0 不启用，1 启用，no required |
-| ext | Object | 否 | 透传参数  // 透传给游戏方，no required |
+| ext | String | 否 | 透传字符串参数  // 透传给游戏方，no required |
 | ulc | decimal | 否 | 透传参数  // 透传给游戏方，no required |
 | gameInfo | Object | 否 | 游戏信息；用于传入游戏类别、厂商和具体游戏 ID |
 | gameInfo.category | String | 是 | 游戏类别 ID |
@@ -483,7 +483,7 @@ Body:
   "isGroupTrace": 0,
   "isDemo": 0,
   "returnUrl": "https://app.example.com/back",
-  "ext": {}, // 透传给游戏的参数，no required
+  "ext": "||1499486369695664870|74|||null_4030004|", // 透传给游戏的字符串参数，no required
   "limitConfigId": co2, // 现红配置，no required
   "dataset": "default", // 透传给游戏服务方的数据集，no required
   "enableJackpot": 1, // 是否启用 JackPot：0 不启用，1 启用，no required
