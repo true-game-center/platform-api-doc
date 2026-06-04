@@ -16,7 +16,8 @@
 | 1494326540744264616 | h5games | 1503779730992661356 | royal | royal | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/royal/square.webp" alt="icon" width="40" /> | ✅ | 1 |
 | 1494326540744264616 | h5games | 1499486369695664870 | tanmin | tanmin | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/tanmin/square.webp" alt="icon" width="40" /> | ✅ | 1 |
 | 1494326540744264616 | h5games | 1499484616333986513 | farm | farm | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/farm/square.webp" alt="icon" width="40" /> | ✅ | 1 |
-| 1494326540744264616 | h5games | 1494327065715936934 | 转盘 | 123 | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/roulette/square.webp" alt="icon" width="40" /> | ✅ | 1 |
+| 1494326540744264616 | h5games | 1494327065715936934 | 转盘 | roulette | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/roulette/square.webp" alt="icon" width="40" /> | ✅ | 1 |
+| 1494326540744264616 | h5games | 1509181779502694788 | fishing | fishing | <img src="https://static.super86.cc/public-assets/images/game-asset/h5games-game/fishing/square.webp" alt="icon" width="40" /> | ✅ | 1 |
 | 1497195324928691112 | cq9 | 1497254068404216100 | Alice Run JP | 1200 | <img src="https://static.super86.cc/public-assets/images/game-asset/cq9-game/1200/square.webp" alt="icon" width="40" /> |  | 0 |
 | 1497195324928691112 | cq9 | 1497254068404216082 | Seotda | GB10 | <img src="https://static.super86.cc/public-assets/images/game-asset/cq9-game/GB10/square.webp" alt="icon" width="40" /> |  | 0 |
 | 1497195324928691112 | cq9 | 1497254068404216004 | Poseidon | 80 | <img src="https://static.super86.cc/public-assets/images/game-asset/cq9-game/80/square.webp" alt="icon" width="40" /> |  | 0 |
