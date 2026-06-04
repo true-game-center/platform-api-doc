@@ -436,6 +436,8 @@ Body:
 | isDemo | Integer | 否 | 是否试玩：0 否，1 是，默认 0 |
 | returnUrl | String | 否 | 退出或返回时的跳转地址 |
 | limitConfigId | String | 否 | 限红配置 ID，co2, // 现红配置，no required |
+| dataset | String | 否 | 透传给游戏服务方的数据集，no required |
+| enableJackpot | Integer | 否 | 是否启用 JackPot：0 不启用，1 启用，no required |
 | ext | Object | 否 | 透传参数  // 透传给游戏方，no required |
 | ulc | decimal | 否 | 透传参数  // 透传给游戏方，no required |
 | gameInfo | Object | 否 | 游戏信息；用于传入游戏类别、厂商和具体游戏 ID |
@@ -483,6 +485,8 @@ Body:
   "returnUrl": "https://app.example.com/back",
   "ext": {}, // 透传给游戏的参数，no required
   "limitConfigId": co2, // 现红配置，no required
+  "dataset": "default", // 透传给游戏服务方的数据集，no required
+  "enableJackpot": 1, // 是否启用 JackPot：0 不启用，1 启用，no required
   "gameInfo": {
         "category": "0",  // Game category ID, required
         "providerId": "1494326540744264616",  // 1494326540744264616 is h5games，Game provider ID, required
