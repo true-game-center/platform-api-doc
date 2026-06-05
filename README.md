@@ -52,14 +52,14 @@
    在进入游戏前或游戏中，游戏中心需要获取用户余额（如校验准入、展示余额）。  
    - 游戏中心会调用 **App 服务端**接口：`POST /oapi/score/balance`  
    - 请求头：`token`（游戏中心与 App 约定的服务端 token，见 `game-core.oapi` 等配置）  
-   - 请求体：`kolUserId`、`userId`、`cardTypeCode`（币种）等  
+   - 请求体：`kolUserId`、`userId`、`cardTypeCode`（币种，`FAM` 表示家族币）等
    - App 需返回当前用户在该币种下的余额等信息。
 
 5. **游戏过程中游戏中心扣/加用户积分**  
    游戏过程中产生的上下分（如投注扣款、派彩加款），由游戏中心与游戏厂商（Game Proxy）交互后，再通过 **App 服务端**完成实际积分变动。  
    - 游戏中心会调用 **App 服务端**接口：`POST /oapi/score/cost`  
    - 请求头：`token`  
-   - 请求体：`kolUserId`、`userId`、`currency`、`score`（扣/加分数，正负表示方向）、`gameId`、`bizId`、`gameSupplierId` 等  
+   - 请求体：`kolUserId`、`userId`、`currency`（币种，`FAM` 表示家族币）、`score`（扣/加分数，正负表示方向）、`gameId`、`bizId`、`gameSupplierId` 等
    - App 需完成扣款或加款，并返回扣款后余额等信息。
 
 **小结**：客户端仅需通过「游戏 ID → 获取 URL → WebView 打开」接入；Token 校验、余额查询、积分扣加均由游戏中心与 App 服务端通过上述接口配合完成。App 服务端需实现并暴露 `/oapi/score/balance`、`/oapi/score/cost`，并确保与游戏中心在 token、Base URL 上配置一致（如 `game-core.oapi.url`、`game-core.oapi.token`）。
@@ -142,14 +142,14 @@ Body:
 |------|------|------|------|
 | kolUserId | Long | 是 | KOL/一级用户 ID（A0） |
 | userId | Long | 是 | 用户 ID |
-| cardTypeCode | String | 否 | 币种，如 USD、VND |
+| cardTypeCode | String | 否 | 币种，如 USD、VND、FAM；FAM 表示家族币 |
 
 - **响应**：`SingleResponse<UserBalanceResp>`
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
 | score | String | 用户在该币种下的余额 |
-| currency | String | 币种 |
+| currency | String | 币种；FAM 表示家族币 |
 | userId | Long | 用户 ID |
 | kolUserId | Long | KOL 用户 ID |
 | avatar | String | 头像（可选） |
@@ -170,7 +170,7 @@ Body:
 {
   "kolUserId": ""//商户号
   "userId":"",//用户id
-  "cardTypeCode":""//币种
+  "cardTypeCode":""//币种，FAM 表示家族币
 }
 ```
 
@@ -183,7 +183,7 @@ Body:
   "data": {
     "score":"",//余额
     "kolUserId":"",//商户号
-    "currency":"",//币种
+    "currency":"",//币种，FAM 表示家族币
     "userId":"",//用户id
     "avatar":"",//头像
     "nickname":"",//昵称
@@ -210,7 +210,7 @@ Body:
 | gameSupplierId | String | 是 | 游戏厂商 ID |
 | userId | Long | 是 | 用户 ID |
 | kolUserId | Long | 是 | KOL 用户 ID |
-| currency | String | 否 | 币种 |
+| currency | String | 否 | 币种；FAM 表示家族币 |
 | groupId | String | 否 | 房间id |
 | voucherId | Long | 否 | 代金券 ID（使用代金券时传入） |
 
@@ -220,7 +220,7 @@ Body:
 |------|------|------|
 | userId | Long | 用户 ID |
 | score | String | 扣款/加款后的余额 |
-| currency | String | 币种 |
+| currency | String | 币种；FAM 表示家族币 |
 | usedVoucherScore | BigDecimal | 实际使用代金券金额（若有） |
 | voucherId | Long | 使用的代金券 ID |
 | actualUsedScore | BigDecimal | 实际扣用的积分 |
@@ -244,7 +244,7 @@ Body:
   "gameSupplierId":"",//游戏厂商 ID 
   "userId":"",//用户 ID 
   "kolUserId":"",//KOL 用户 ID 
-  "currency":"", //币种
+  "currency":"", //币种，FAM 表示家族币
   "groupId":"",//房间id
   "voucherId":""//代金券 ID（使用代金券时传入） 
 }
@@ -259,7 +259,7 @@ Body:
   "data": {
     "score":"",//余额
     "kolUserId":"",//商户号
-    "currency":"",//币种
+    "currency":"",//币种，FAM 表示家族币
     "userId":"",//用户id
     "actualUsedScore":""//实际扣用的积分
   }
@@ -279,7 +279,7 @@ Body:
 |------|------|------|------|
 | kolUserId | Long | 是 | KOL 用户 ID |
 | userId | Long | 是 | 用户 ID |
-| cardTypeCode | String | 是 | 币种 |
+| cardTypeCode | String | 是 | 币种；FAM 表示家族币 |
 | page | Integer | 否 | 页码，从 1 开始 |
 | size | Integer | 否 | 每页条数 |
 | gameId | String | 否 | 游戏 ID，用于功能范围过滤 |
@@ -292,7 +292,7 @@ Body:
 | result.total | Long | 总记录数 |
 | result.list | Array | 优惠券列表，每项为 UserVoucherItem |
 
-**UserVoucherItem 字段**：id、voucherId、userId、kolUserId、cardTypeCode、balance（优惠券余额）、originalScore、useScene、isUsed、payBetTimes（打码倍数）、voucherValidFrom、voucherValidTo、usageScope、globalScope、moduleScope、featureScope。
+**UserVoucherItem 字段**：id、voucherId、userId、kolUserId、cardTypeCode（FAM 表示家族币）、balance（优惠券余额）、originalScore、useScene、isUsed、payBetTimes（打码倍数）、voucherValidFrom、voucherValidTo、usageScope、globalScope、moduleScope、featureScope。
 
 **使用场景**：游戏内展示可用代金券、使用代金券抵扣时由游戏中心先查列表再在扣款时传 `voucherId`。
 
@@ -343,7 +343,7 @@ Body:
 | modifyTimeStart | Date | 否 | 修改时间起 |
 | modifyTimeEnd | Date | 否 | 修改时间止 |
 | gameName | String | 否 | 游戏名称（国际化模糊查询） |
-| currency | String | 否 | 货币类型，如 VND、CNY、USD |
+| currency | String | 否 | 货币类型，如 VND、CNY、USD、FAM；FAM 表示家族币 |
 | openType | Integer | 否 | 打开方式：0 iframe，1 直接跳转 |
 | gameCategoryCodes | List\<String\> | 否 | 游戏类别编码列表 |
 | multiPlayer | Integer | 否 | 是否多人游戏：0 单人，1 多人 |
@@ -430,7 +430,7 @@ Body:
 | ip | String | 是 |IP地址 |
 | country | String | 是 |国家 |
 | token | String | 是 |用户token |
-| currency | String | 是 | 币种，如 USD、VND、CNY |
+| currency | String | 是 | 币种，如 USD、VND、CNY、FAM；FAM 表示家族币 |
 | groupId | String | 否 | 房间/组 ID（如语音房场景） |
 | isGroupTrace | Integer | 否 | 是否从语音房进入：0 否，1 是，默认 0 |
 | isDemo | Integer | 否 | 是否试玩：0 否，1 是，默认 0 |
@@ -477,7 +477,7 @@ Headers:
 
 Body:
 {
-  "currency": "USD",
+  "currency": "USD",//币种，FAM 表示家族币
   "gameId": 100,
   "groupId": "room_001",
   "isGroupTrace": 0,
@@ -512,7 +512,7 @@ curl 'https://game-center-playpop.pwtk.cc/oapi/game/enter' \
   -H 'cid: 1.1769652662256.cf893e68.sBSkyQH8pTL_Uhaxsdpo3GAbuarQW2k1ul5SuUhVso1hQyaNnRvSDOWyDBj04YysWfZDAu1-kSPxqUl0ljxXXg' \
   -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36' \
   -H 'rl: 0' \
-  --data-raw '{"gameSupplierId":"1479519142045287281","gameCategoryId":"1425122707615252577","gameId":"1465735229007200458","currency":"USD","returnUrl":"https%3A%2F%2Fsuper86.cc%2Fclose"}'
+  --data-raw '{"gameSupplierId":"1479519142045287281","gameCategoryId":"1425122707615252577","gameId":"1465735229007200458","currency":"FAM","returnUrl":"https%3A%2F%2Fsuper86.cc%2Fclose"}'
 
 #### 响应示例
 
@@ -564,7 +564,7 @@ curl 'https://game-center-playpop.pwtk.cc/oapi/game/enter' \
 | endTime | String | 否 | 结束时间 |
 | createTimeStart | Long | 否 | 创建时间开始时间戳（毫秒），会转换为 beginTime |
 | createTimeEnd | Long | 否 | 创建时间结束时间戳（毫秒），会转换为 endTime |
-| currency | String | 否 | 币种，为空时查所有币种 |
+| currency | String | 否 | 币种；FAM 表示家族币；为空时查所有币种 |
 | timeZone | Integer | 否 | 时区：0 北京/新加坡，1 美东，2 不转时区，默认 0 |
 | timeType | Integer | 否 | 快捷时间：0 最近 1 天，1 最近 3 天，3 最近 7 天，4 最近 30 天；与 beginTime 同时传时以 beginTime 为准 |
 | isGetDetail | Integer | 否 | 是否获取订单详情：0 否，1 是 |
@@ -580,7 +580,7 @@ curl 'https://game-center-playpop.pwtk.cc/oapi/game/enter' \
 | totalValidScore | BigDecimal | 总有效金额 |
 | list | Array | 订单列表，每项为 UserOrderDTO |
 
-**UserOrderDTO 主要字段**：kolUserId、userId、gameId、gameName、gameSupplierId、gameSupplierCode、gameSupplierName、gameCategoryId、gameCategoryName、orderId、currency、state、betTime、betScore、settleScore、netScore、validScore、settleTime、groupId、isSettle、gameInfo、isOrderDetail。
+**UserOrderDTO 主要字段**：kolUserId、userId、gameId、gameName、gameSupplierId、gameSupplierCode、gameSupplierName、gameCategoryId、gameCategoryName、orderId、currency（FAM 表示家族币）、state、betTime、betScore、settleScore、netScore、validScore、settleTime、groupId、isSettle、gameInfo、isOrderDetail。
 
 #### 请求示例
 
@@ -595,7 +595,7 @@ Body:
   "size": 20,
   "kolUserId": 10001,
   "userId": 20002,
-  "currency": "USD",
+  "currency": "USD",//币种，FAM 表示家族币
   "timeType": 3,
   "timeZone": 0
 }
@@ -618,7 +618,7 @@ Body:
         "groupId": "room_001",//房间id
         "gameSupplierId": 5,//游戏厂商id
         "gameCategoryId": 10,//游戏类别id
-        "currency": "USD",//币种
+        "currency": "USD",//币种，FAM 表示家族币
         "betScore": 500.00,//下注金额
         "settleScore": 520.00,//结算金额
         "validScore": 490.00,//打码量
@@ -646,7 +646,7 @@ Body:
 | size | Integer | 是 | 每页条数 |
 | kolUserId | Long | 是 | KOL 用户 ID |
 | userIds | List\<Long\> | 否 | 用户 ID 列表 |
-| currency | String | 否 | 币种 |
+| currency | String | 否 | 币种；FAM 表示家族币 |
 | groupId | String | 否 | 房间/组 ID |
 | beginTime | String | 否 | 开始时间，格式 yyyy-MM-dd HH:mm:ss |
 | endTime | String | 否 | 结束时间 |
@@ -665,7 +665,7 @@ Body:
 | totalValidScore | BigDecimal | 总有效金额 |
 | list | Array | 统计明细列表，每项为 OrderStatDTO |
 
-**OrderStatDTO 主要字段**：gameId、groupId、gameSupplierId、gameCategoryId、currency、betScore、settleScore、validScore、userId。
+**OrderStatDTO 主要字段**：gameId、groupId、gameSupplierId、gameCategoryId、currency（FAM 表示家族币）、betScore、settleScore、validScore、userId。
 
 #### 请求示例
 
@@ -677,7 +677,7 @@ Body:
   "size": 20,
   "kolUserId": 10001,
   "userIds": [20001, 20002],
-  "currency": "USD",
+  "currency": "USD",//币种，FAM 表示家族币
   "beginTime": "2025-01-01 00:00:00",
   "endTime": "2025-01-31 23:59:59",
   "isSettle": 1,
@@ -702,7 +702,7 @@ Body:
         "groupId": "room_001",//房间id
         "gameSupplierId": 5,//游戏厂商id
         "gameCategoryId": 10,//游戏类别id
-        "currency": "USD",//币种
+        "currency": "USD",//币种，FAM 表示家族币
         "betScore": 500.00,//下注金额
         "settleScore": 520.00,//结算金额
         "validScore": 490.00,//打码量
