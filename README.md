@@ -439,11 +439,21 @@ Body:
 | dataset | String | 否 | 透传给游戏服务方的数据集，no required |
 | enableJackpot | Integer | 否 | 是否启用 JackPot：0 不启用，1 启用，no required |
 | ext | String | 否 | 透传字符串参数  // 透传给游戏方，no required |
-| ulc | decimal | 否 | 透传参数  // 透传给游戏方，no required |
+| ulc | String | 否 | 用户生命周期代码，透传给游戏方，no required；见下方 `ulc` 代码定义 |
 | gameInfo | Object | 否 | 游戏信息；用于传入游戏类别、厂商和具体游戏 ID |
 | gameInfo.category | String | 是 | 游戏类别 ID |
 | gameInfo.providerId | String | 是 | 游戏厂商 ID；1494326540744264616 表示 h5games |
 | gameInfo.gameId | String | 否 | 游戏 ID；可选游戏示例：1503790445774242709 carnival，1503780287216092019 foddie，1503779730992661356 royal，1499486369695664870 tanmin，1499484616333986513 farm，1494327065715936934 转盘 |
+
+#### `ulc` 代码定义
+
+| 用户生命周期 | 代码 |
+|--------------|------|
+| D0-D2：新用户 | `02` |
+| D3-D6：次新用户 | `36` |
+| D7-D14：成长期用户 | `714` |
+| D15-D30：稳定期用户 | `1530` |
+| D31+：成熟用户 | `3100` |
 
 
 
@@ -487,6 +497,7 @@ Body:
   "limitConfigId": co2, // 现红配置，no required
   "dataset": "default", // 透传给游戏服务方的数据集，no required
   "enableJackpot": 1, // 是否启用 JackPot：0 不启用，1 启用，no required
+  "ulc": "02", // 用户生命周期代码，no required
   "gameInfo": {
         "category": "0",  // Game category ID, required
         "providerId": "1494326540744264616",  // 1494326540744264616 is h5games，Game provider ID, required
