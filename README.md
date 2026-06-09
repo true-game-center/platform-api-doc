@@ -213,6 +213,9 @@ Body:
 | currency | String | 否 | 币种；FAM 表示家族币 |
 | groupId | String | 否 | 房间id |
 | voucherId | Long | 否 | 代金券 ID（使用代金券时传入） |
+| dataset | String | 否 | 透传给游戏服务方的数据集 |
+| enableJackpot | Integer | 否 | 是否启用 JackPot：0 不启用，1 启用 |
+| ext | String | 否 | 透传给游戏服务方的扩展字符串参数 |
 
 - **响应**：`SingleResponse<UserCostScoreResp>`
 
@@ -246,7 +249,10 @@ Body:
   "kolUserId":"",//KOL 用户 ID 
   "currency":"", //币种，FAM 表示家族币
   "groupId":"",//房间id
-  "voucherId":""//代金券 ID（使用代金券时传入） 
+  "voucherId":"",//代金券 ID（使用代金券时传入）
+  "dataset":"default",//透传给游戏服务方的数据集，非必填
+  "enableJackpot":1,//是否启用 JackPot：0 不启用，1 启用，非必填
+  "ext":"||1499486369695664870|74|||null_4030004|"//透传给游戏服务方的扩展字符串参数，非必填
 }
 ```
 
